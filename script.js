@@ -9,3 +9,11 @@ function createDivs(num) {
 }
 
 createDivs(256);
+
+const gridList = document.querySelectorAll(".pixel-grid");
+
+gridList.forEach(function (elem) {
+    elem.addEventListener("hover", function () {
+        // to be implemented
+    })
+})
