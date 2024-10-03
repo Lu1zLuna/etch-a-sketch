@@ -14,6 +14,6 @@ const gridList = document.querySelectorAll(".pixel-div");
 
 gridList.forEach(function (elem) {
     elem.addEventListener("mouseenter", function () {
-        // to be implemented
+        elem.setAttribute("style", "background-color: black;");
     })
 })
