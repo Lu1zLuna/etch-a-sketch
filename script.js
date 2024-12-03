@@ -1,6 +1,6 @@
 const canvasContainer = document.querySelector("#canvas.container");
 
-function createDivs(num) {
+function createSquares(num) {
     canvasContainer.innerHTML = ""; // Clears old squares inside the grid
 
     for (let i = 0; i < num * num; i++) {
@@ -37,4 +37,4 @@ button.addEventListener("click", () => {
     }
 });
 
-createDivs(squaresNumber);
+createSquares(squaresNumber);
