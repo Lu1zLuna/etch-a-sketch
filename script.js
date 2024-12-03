@@ -16,6 +16,7 @@ function createSquares(num) {
     }
 }
 
+// Add the hover effect to new cells
 const paintableGrid = document.querySelectorAll(".paintable-square");
 
 paintableGrid.forEach(function (elem) {
