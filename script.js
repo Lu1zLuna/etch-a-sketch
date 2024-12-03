@@ -1,18 +1,23 @@
 const canvasContainer = document.querySelector("#canvas.container");
 
 function createDivs(num) {
-    canvasContainer.innerHTML = "";
+    canvasContainer.innerHTML = ""; // Clears old squares inside the grid
 
     for (let i = 0; i < num * num; i++) {
         const grid = document.createElement("div");
-        grid.classList.add("paintable-div");
+        grid.classList.add("paintable-square");
+
+        const cellSize = 960 / num; // 960px is the total size of the canvas
+        grid.style.width = `${cellSize}px`;
+        grid.style.height = `${cellSize}px`;
+
         canvasContainer.appendChild(grid);
     }
 }
 
 let squaresNumber = 16;
 
-const paintableGrid = document.querySelectorAll(".paintable-div");
+const paintableGrid = document.querySelectorAll(".paintable-square");
 
 paintableGrid.forEach(function (elem) {
     elem.addEventListener("mouseenter", function () {
