@@ -17,7 +17,8 @@
     border: 1px solid black;
 }
 
-.paintable-div {
+.paintable-square {
     border: 1px solid #ddd;
     box-sizing: border-box;
+    background-color: white;
 }
