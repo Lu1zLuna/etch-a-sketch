@@ -12,18 +12,15 @@ function createSquares(num) {
         grid.style.width = `${cellSize}px`;
         grid.style.height = `${cellSize}px`;
 
+        // Add the hover effect to new cells
+        grid.addEventListener("mouseenter", function () {
+            grid.style.backgroundColor = "black";
+        });
+
         canvasContainer.appendChild(grid);
     }
 }
 
-// Add the hover effect to new cells
-const paintableGrid = document.querySelectorAll(".paintable-square");
-
-paintableGrid.forEach(function (elem) {
-    elem.addEventListener("mouseenter", function () {
-        elem.setAttribute("style", "background-color: black;");
-    })
-});
 
 // Button to reset grid
 const button = document.querySelector("#reset-btn");
