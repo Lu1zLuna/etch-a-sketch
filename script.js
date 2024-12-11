@@ -29,7 +29,7 @@ button.addEventListener("click", () => {
     let squaresNumber = parseInt(prompt("How many squares per side do you want for the new grid?"))
 
     if (Number.isInteger(squaresNumber) && squaresNumber > 0 && squaresNumber <= 100) {
-        createDivs(squaresNumber); // Create a new grid with the specified size
+        createSquares(squaresNumber); // Create a new grid with the specified size
     } else {
         alert("Please enter a number between 1 and 100.");
     }
