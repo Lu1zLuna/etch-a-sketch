@@ -14,19 +14,29 @@ function createSquares(num) {
 
         // Add the hover effect to new cells
         grid.addEventListener("mouseenter", function () {
-            grid.style.backgroundColor = "black";
+            grid.style.backgroundColor = randomBackgroundColor();
         });
 
         canvasContainer.appendChild(grid);
     }
 }
 
+function randomBackgroundColor() {
+    // Generate random values for red, green, and blue components between 0 and 255.
+    let R = Math.floor(Math.random() * 256);
+    let G = Math.floor(Math.random() * 256);
+    let B = Math.floor(Math.random() * 256);
+
+    let bgColor = "rgb(" + R + "," + G + "," + B + ")";
+
+    return bgColor;
+}
 
 // Button to reset grid
 const button = document.querySelector("#reset-btn");
 
 button.addEventListener("click", () => {
-    let squaresNumber = parseInt(prompt("How many squares per side do you want for the new grid?"))
+    let squaresNumber = parseInt(prompt("How many squares per side do you want for the new grid?"));
 
     if (Number.isInteger(squaresNumber) && squaresNumber > 0 && squaresNumber <= 100) {
         createSquares(squaresNumber); // Create a new grid with the specified size
