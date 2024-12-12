@@ -12,9 +12,20 @@ function createSquares(num) {
         grid.style.width = `${cellSize}px`;
         grid.style.height = `${cellSize}px`;
 
+        // Inicializa a opacidade no estilo inline
+        grid.dataset.opacity = "0.0";
+
         // Add the hover effect to new cells
         grid.addEventListener("mouseenter", function () {
-            grid.style.backgroundColor = randomBackgroundColor();
+            let currentOpacity = parseFloat(grid.dataset.opacity); // Lê a opacidade do dataset
+
+            if (currentOpacity < 1) {
+                currentOpacity = (currentOpacity + 0.1).toFixed(1); // Incrementa a opacidade
+                grid.dataset.opacity = currentOpacity; // Atualiza o dataset
+            }
+
+            const randomColor = randomBackgroundColor();
+            grid.style.backgroundColor = `rgba(${randomColor.r}, ${randomColor.g}, ${randomColor.b}, ${currentOpacity})`;
         });
 
         canvasContainer.appendChild(grid);
@@ -23,13 +34,11 @@ function createSquares(num) {
 
 function randomBackgroundColor() {
     // Generate random values for red, green, and blue components between 0 and 255.
-    let R = Math.floor(Math.random() * 256);
-    let G = Math.floor(Math.random() * 256);
-    let B = Math.floor(Math.random() * 256);
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
 
-    let bgColor = "rgb(" + R + "," + G + "," + B + ")";
-
-    return bgColor;
+    return { r: x, g: y, b: z };
 }
 
 // Button to reset grid
