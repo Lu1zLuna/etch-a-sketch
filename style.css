@@ -10,7 +10,7 @@
 }
 
 #etch-a-sketch.container {
-    border: 120px solid rgb(42, 54, 223);
+    border: 120px solid rgb(204, 52, 52);
     border-radius: 70px;
     margin-right: auto;
     margin-left: auto;
@@ -33,7 +33,8 @@
 
 #reset-btn {
     background-color: #ffffff;
-    border: solid #cfcfcf; 
+    border: solid #cfcfcf;
+    border-collapse: collapse;
     color: rgb(0, 0, 0);
     padding: 20px;
     text-align: center;
