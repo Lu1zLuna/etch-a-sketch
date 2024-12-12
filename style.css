@@ -9,16 +9,39 @@
     padding: 0;
 }
 
+#etch-a-sketch.container {
+    border: 120px solid rgb(42, 54, 223);
+    border-radius: 70px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 960px;
+    height: 960px;
+}
+
 #canvas.container {
     display: flex;
     flex-wrap: wrap;
-    width: 960px;
-    height: 960px;
-    border: 1px solid black;
 }
 
 .paintable-square {
     border: 1px solid #ddd;
     box-sizing: border-box;
     background-color: white;
+}
+
+#reset-btn {
+    background-color: #ffffff;
+    border: solid #cfcfcf; 
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
 }
