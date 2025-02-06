@@ -42,9 +42,9 @@ function randomBackgroundColor() {
 }
 
 // Button to reset grid
-const button = document.querySelector("#reset-btn");
+const resetButton = document.querySelector("#reset-btn");
 
-button.addEventListener("click", () => {
+resetButton.addEventListener("click", () => {
     let squaresNumber = parseInt(prompt("How many squares per side do you want for the new grid?"));
 
     if (Number.isInteger(squaresNumber) && squaresNumber > 0 && squaresNumber <= 100) {
@@ -53,6 +53,9 @@ button.addEventListener("click", () => {
         alert("Please enter a number between 1 and 100.");
     }
 });
+
+const colorButton = document.querySelector("#color-btn");
+
 
 let squaresNumber = 16; // Initial grid size
 createSquares(squaresNumber);

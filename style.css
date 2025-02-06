@@ -31,7 +31,7 @@
     background-color: white;
 }
 
-#reset-btn {
+button{
     background-color: #ffffff;
     border: solid #cfcfcf;
     border-collapse: collapse;
@@ -45,4 +45,8 @@
     border-radius: 50%;
     height: 100px;
     width: 100px;
+}
+
+button:hover{
+    background-color: #ddd;
 }
