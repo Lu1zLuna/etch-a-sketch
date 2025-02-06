@@ -1,5 +1,19 @@
 const canvasContainer = document.querySelector("#canvas.container");
 
+let currentMode = "black";
+
+const colorButton = document.querySelector("#color-btn");
+colorButton.addEventListener("click", () => {
+    if (currentMode === "black") {
+        currentMode = "rainbow";
+        colorButton.textContent = "Black mode";
+    }
+    else{
+        currentMode = "black";
+        colorButton.textContent = "Rainbow mode";
+    }
+})
+
 function createSquares(num) {
     canvasContainer.innerHTML = ""; // Clears old squares inside the grid
 
@@ -19,13 +33,22 @@ function createSquares(num) {
         grid.addEventListener("mouseenter", function () {
             let currentOpacity = parseFloat(grid.dataset.opacity); // Reads the opacity of the dataset
 
-            if (currentOpacity < 1) {
-                currentOpacity = (currentOpacity + 0.1).toFixed(1); // Increments the opacity
-                grid.dataset.opacity = currentOpacity; // Updates the dataset
+            if (currentMode == "rainbow") {
+                if (currentOpacity < 1) {
+                    currentOpacity = (currentOpacity + 0.1).toFixed(1); // Increments the opacity
+                    grid.dataset.opacity = currentOpacity; // Updates the dataset
+                }
+                const randomColor = randomBackgroundColor();
+                grid.style.backgroundColor = `rgba(${randomColor.r}, ${randomColor.g}, ${randomColor.b}, ${currentOpacity})`;
             }
-
-            const randomColor = randomBackgroundColor();
-            grid.style.backgroundColor = `rgba(${randomColor.r}, ${randomColor.g}, ${randomColor.b}, ${currentOpacity})`;
+            else {
+                if (currentOpacity < 1) {
+                    currentOpacity = (currentOpacity + 0.1).toFixed(1);
+                    grid.dataset.opacity = currentOpacity;
+                }
+                const randomColor = randomBackgroundColor();
+                grid.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity})`
+            }
         });
 
         canvasContainer.appendChild(grid);
@@ -45,7 +68,7 @@ function randomBackgroundColor() {
 const resetButton = document.querySelector("#reset-btn");
 
 resetButton.addEventListener("click", () => {
-    let squaresNumber = parseInt(prompt("How many squares per side do you want for the new grid?"));
+    let squaresNumber = parseInt(prompt("How many squares per side do you want for the new grid? (Default is 16x16)"));
 
     if (Number.isInteger(squaresNumber) && squaresNumber > 0 && squaresNumber <= 100) {
         createSquares(squaresNumber); // Create a new grid with the specified size
@@ -53,9 +76,6 @@ resetButton.addEventListener("click", () => {
         alert("Please enter a number between 1 and 100.");
     }
 });
-
-const colorButton = document.querySelector("#color-btn");
-
 
 let squaresNumber = 16; // Initial grid size
 createSquares(squaresNumber);
