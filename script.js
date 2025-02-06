@@ -12,16 +12,16 @@ function createSquares(num) {
         grid.style.width = `${cellSize}px`;
         grid.style.height = `${cellSize}px`;
 
-        // Inicializa a opacidade no estilo inline
+        // Initializes the opacity using inline style
         grid.dataset.opacity = "0.0";
 
         // Add the hover effect to new cells
         grid.addEventListener("mouseenter", function () {
-            let currentOpacity = parseFloat(grid.dataset.opacity); // Lê a opacidade do dataset
+            let currentOpacity = parseFloat(grid.dataset.opacity); // Reads the opacity of the dataset
 
             if (currentOpacity < 1) {
-                currentOpacity = (currentOpacity + 0.1).toFixed(1); // Incrementa a opacidade
-                grid.dataset.opacity = currentOpacity; // Atualiza o dataset
+                currentOpacity = (currentOpacity + 0.1).toFixed(1); // Increments the opacity
+                grid.dataset.opacity = currentOpacity; // Updates the dataset
             }
 
             const randomColor = randomBackgroundColor();
